@@ -9,6 +9,7 @@ import MerchantSection from './components/MerchantSection';
 import TrustSafety from './components/TrustSafety';
 import RegionalVision from './components/RegionalVision';
 import FinalCTA from './components/FinalCTA';
+import SocialFollow from './components/SocialFollow';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <TrustSafety />
         <RegionalVision />
         <FinalCTA />
+        <SocialFollow />
       </main>
       <Footer />
     </>

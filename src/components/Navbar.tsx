@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Become a Runner', href: '#runner' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
+  { label: 'Follow Us', href: '#social' },
 ];
 
 export default function Navbar() {

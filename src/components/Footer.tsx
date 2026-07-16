@@ -1,3 +1,6 @@
+import { SOCIAL_LINKS } from '../constants/socialLinks';
+import SocialIcon from './SocialIcon';
+
 const productLinks = [
   { label: 'Customer App', href: 'https://app.sendmeafrica.com' },
   { label: 'Runner App', href: 'https://runner.sendmeafrica.com' },
@@ -133,10 +136,28 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+        <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
             © 2026 SendMe Africa. All rights reserved.
           </p>
+
+          {/* Social icons */}
+          <div className="flex items-center gap-3">
+            {SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.ariaLabel}
+                title={link.ariaLabel}
+                className="text-gray-500 transition-colors duration-150 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/50 rounded"
+              >
+                <SocialIcon name={link.name} size={18} />
+              </a>
+            ))}
+          </div>
+
           <p className="text-brand-500 text-sm font-medium">
             Built in Uganda for Africa
           </p>
