@@ -72,6 +72,14 @@ export default function Navbar() {
             >
               Register Your Business
             </a>
+            <a
+              href="https://affiliate.sendmeafrica.com?tab=register"
+              className="btn-outline-dark"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Become an Affiliate
+            </a>
           </div>
 
           {/* Mobile hamburger */}
@@ -132,6 +140,15 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               Register Your Business
+            </a>
+            <a
+              href="https://affiliate.sendmeafrica.com?tab=register"
+              className="btn-outline-dark text-center"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+            >
+              Become an Affiliate
             </a>
           </div>
         </div>

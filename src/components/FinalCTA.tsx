@@ -28,6 +28,12 @@ export default function FinalCTA() {
           >
             Register Your Business
           </a>
+          <a
+            href="https://affiliate.sendmeafrica.com?tab=register"
+            className="border-2 border-white/50 text-white rounded-full px-8 py-4 text-base font-semibold hover:border-white hover:bg-white/10 transition"
+          >
+            Become a SendMe Affiliate
+          </a>
         </div>
       </div>
     </section>

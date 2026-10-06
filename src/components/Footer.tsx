@@ -5,6 +5,7 @@ const productLinks = [
   { label: 'Customer App', href: 'https://app.sendmeafrica.com' },
   { label: 'Runner App', href: 'https://runner.sendmeafrica.com' },
   { label: 'Merchant Portal', href: 'https://merchant.sendmeafrica.com' },
+  { label: 'Affiliate Program', href: 'https://affiliate.sendmeafrica.com' },
 ];
 
 const companyLinks = [
@@ -131,6 +132,14 @@ export default function Footer() {
               rel="noopener noreferrer"
             >
               Register Your Business
+            </a>
+            <a
+              href="https://affiliate.sendmeafrica.com?tab=register"
+              className="block text-center text-sm font-medium px-4 py-2 mt-3 rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-800 transition-colors duration-150"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Become a SendMe Affiliate
             </a>
           </div>
         </div>

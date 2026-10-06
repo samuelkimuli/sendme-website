@@ -54,7 +54,7 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Secondary link */}
+            {/* Secondary links */}
             <p className="mt-5 text-sm text-gray-400">
               For businesses:{' '}
               <a
@@ -64,6 +64,17 @@ export default function Hero() {
                 rel="noopener noreferrer"
               >
                 Register Your Business →
+              </a>
+            </p>
+            <p className="mt-2 text-sm text-gray-400">
+              Influencer or promoter?{' '}
+              <a
+                href="https://affiliate.sendmeafrica.com?tab=register"
+                className="text-brand-400 hover:text-brand-300 underline underline-offset-2 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Become a SendMe Affiliate →
               </a>
             </p>
           </div>

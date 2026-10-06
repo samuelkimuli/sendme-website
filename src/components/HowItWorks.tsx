@@ -146,6 +146,12 @@ export default function HowItWorks() {
           >
             Register Business
           </a>
+          <a
+            href="https://affiliate.sendmeafrica.com?tab=register"
+            className="border border-brand-500 text-brand-500 rounded-full px-6 py-2.5 text-sm font-semibold hover:bg-brand-50 transition"
+          >
+            Become a SendMe Affiliate
+          </a>
         </div>
 
       </div>
