@@ -7,6 +7,14 @@
     <meta name="description" content="Request deletion of your SendMe Africa account and personal information, without needing the app installed." />
     <link rel="canonical" href="https://sendmeafrica.com/delete-account" />
     <meta name="robots" content="index, follow" />
+    <!-- This page can carry a single-use deletion token in its own URL
+         (?token=...). no-referrer means that token is never leaked via
+         the Referer header on outbound requests this page makes itself
+         (e.g. the Google Fonts stylesheet below) or via any link a
+         visitor might click while it's still in the address bar — see
+         the inline script below, which also scrubs the token out of the
+         visible URL once it's been read into memory. -->
+    <meta name="referrer" content="no-referrer" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -192,6 +200,9 @@
       <ul>
         <li>Your name, email address, phone number, password, and any linked Google sign-in are permanently removed from your account.</li>
         <li>You will no longer be able to sign in with this account, on any SendMe app or portal.</li>
+        <li>If you submitted ID verification as a Runner, that record is deleted.</li>
+        <li>On completed or cancelled orders, tasks, and bookings, the specific pickup/drop-off address, map coordinates, and any notes you entered are removed.</li>
+        <li>On resolved or closed support tickets, the contact email/phone copy stored on the ticket is removed.</li>
       </ul>
 
       <h2>What may be retained</h2>
@@ -199,13 +210,19 @@
         As explained in our
         <a href="/privacy#retention">Privacy Policy</a>, we retain certain
         information for as long as needed to comply with our legal
-        obligations, resolve disputes, or enforce our agreements — for
-        example, records of completed orders, payments, or payouts. Retained
-        records are kept for these legitimate purposes only and are no
-        longer linked to your name, email, or other identifying
-        information once your account is deleted. We do not invent or
-        promise a specific retention period here beyond what our Privacy
-        Policy already describes.
+        obligations, resolve disputes, or enforce our agreements. In
+        practice, this means:
+      </p>
+      <ul>
+        <li>The basic facts of completed transactions — that an order or task happened, its amount, and its date — stay on record for accounting purposes, no longer tied to your name or contact details, only to your deleted account's internal ID.</li>
+        <li>An order, task, or support ticket that is still active or unresolved when you delete your account is <strong>not</strong> altered until it reaches a completed/closed state — so an in-progress delivery or an open support case isn't broken by your account being deleted partway through.</li>
+        <li>If you own a merchant storefront with an order still being fulfilled, that storefront's contact details are kept until that order is done — other customers may still be relying on it.</li>
+      </ul>
+      <p>
+        We do not invent or promise a specific retention period here beyond
+        what our Privacy Policy already describes, and we do not claim that
+        every trace of every field is erased everywhere — only that the
+        policy above is what our systems actually do.
       </p>
       <p>
         If you have an unwithdrawn balance in your SendMe wallet, please
@@ -272,6 +289,16 @@
 
         var params = new URLSearchParams(window.location.search);
         var token = params.get('token');
+
+        // Scrub the token out of the visible/addressable URL as soon as
+        // it's been read into the `token` variable above — it stays in
+        // memory for the actual confirm POST below, but no longer lingers
+        // in the address bar, browser history, or anything that reads
+        // location.href/document.referrer after this point (defense in
+        // depth alongside the no-referrer meta tag above).
+        if (token && window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname);
+        }
 
         var requestSection = document.getElementById('request-section');
         var confirmSection = document.getElementById('confirm-section');
