@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Your Account | SendMe Africa</title>
+    <meta name="description" content="Request deletion of your SendMe Africa account and personal information, without needing the app installed." />
+    <link rel="canonical" href="https://sendmeafrica.com/delete-account" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --brand-50: #f0fdf4;
+        --brand-500: #00b14f;
+        --brand-600: #009940;
+        --brand-700: #007a33;
+        --navy-800: #0f1f3d;
+        --navy-900: #0a1628;
+        --navy-950: #060e1a;
+        --ink: #1a202c;
+        --muted: #4b5563;
+        --danger-50: #fef2f2;
+        --danger-600: #dc2626;
+        --danger-700: #b91c1c;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: #fff;
+        color: var(--ink);
+      }
+      a { color: var(--brand-600); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      header.site-header {
+        background: var(--navy-950);
+        padding: 1rem 1.5rem;
+      }
+      .site-header .inner {
+        max-width: 56rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .wordmark {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: -0.01em;
+      }
+      .wordmark span { color: var(--brand-500); }
+      .back-link {
+        color: #cbd5e1;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+      .back-link:hover { color: #fff; }
+
+      main {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 4rem;
+      }
+      h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--navy-900);
+        letter-spacing: -0.01em;
+        margin: 0 0 0.5rem;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin: 0 0 2rem;
+      }
+      h2 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--navy-900);
+        margin: 2rem 0 0.75rem;
+      }
+      p, li { line-height: 1.7; color: #374151; font-size: 0.975rem; }
+      ul { padding-left: 1.25rem; }
+      li { margin-bottom: 0.4rem; }
+      .callout {
+        background: var(--brand-50);
+        border: 1px solid #bbf7d0;
+        border-radius: 0.75rem;
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+        color: #065f32;
+      }
+      .card {
+        border: 1px solid #e5e7eb;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+      .card.danger {
+        border-color: #fecaca;
+        background: var(--danger-50);
+      }
+      label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--navy-900);
+        margin-bottom: 0.4rem;
+      }
+      input[type="email"] {
+        width: 100%;
+        padding: 0.7rem 0.9rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.6rem;
+        font-size: 0.95rem;
+        font-family: inherit;
+        margin-bottom: 1rem;
+      }
+      input[type="email"]:focus { outline: 2px solid var(--brand-500); border-color: transparent; }
+      button.btn {
+        appearance: none;
+        border: none;
+        border-radius: 0.6rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        font-family: inherit;
+        cursor: pointer;
+        color: #fff;
+        background: var(--danger-600);
+        width: 100%;
+      }
+      button.btn:hover { background: var(--danger-700); }
+      button.btn:disabled { background: #d1d5db; cursor: not-allowed; }
+      .status {
+        margin-top: 1rem;
+        padding: 0.9rem 1rem;
+        border-radius: 0.6rem;
+        font-size: 0.9rem;
+        display: none;
+      }
+      .status.success { display: block; background: var(--brand-50); color: #065f32; border: 1px solid #bbf7d0; }
+      .status.error { display: block; background: var(--danger-50); color: var(--danger-700); border: 1px solid #fecaca; }
+      .status.info { display: block; background: #eff6ff; color: #1e3a8a; border: 1px solid #bfdbfe; }
+      [hidden] { display: none !important; }
+
+      @media (max-width: 600px) {
+        h1 { font-size: 1.6rem; }
+        main { padding: 2rem 1.25rem 3rem; }
+      }
+
+      footer.site-footer {
+        background: var(--navy-950);
+        color: #9ca3af;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+      footer.site-footer a { color: #d1d5db; }
+      footer.site-footer a:hover { color: #fff; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="inner">
+        <a href="/" class="wordmark">Send<span>Me</span></a>
+        <a href="/" class="back-link">← Back to sendmeafrica.com</a>
+      </div>
+    </header>
+
+    <main>
+      <h1>Delete Your SendMe Account</h1>
+      <p class="meta">SendMe Africa ("SendMe") — account &amp; data deletion request</p>
+
+      <p>
+        This page lets you request deletion of your SendMe account and
+        personal information without needing the SendMe app installed. It
+        works for any SendMe account — Customer, Runner, Merchant, or
+        Affiliate.
+      </p>
+
+      <h2>What gets deleted</h2>
+      <ul>
+        <li>Your name, email address, phone number, password, and any linked Google sign-in are permanently removed from your account.</li>
+        <li>You will no longer be able to sign in with this account, on any SendMe app or portal.</li>
+      </ul>
+
+      <h2>What may be retained</h2>
+      <p>
+        As explained in our
+        <a href="/privacy#retention">Privacy Policy</a>, we retain certain
+        information for as long as needed to comply with our legal
+        obligations, resolve disputes, or enforce our agreements — for
+        example, records of completed orders, payments, or payouts. Retained
+        records are kept for these legitimate purposes only and are no
+        longer linked to your name, email, or other identifying
+        information once your account is deleted. We do not invent or
+        promise a specific retention period here beyond what our Privacy
+        Policy already describes.
+      </p>
+      <p>
+        If you have an unwithdrawn balance in your SendMe wallet, please
+        withdraw it before requesting deletion — deletion cannot complete
+        while a balance remains, since once your account's contact
+        information is removed we would have no way to pay it out.
+      </p>
+
+      <div class="callout" id="already-in-app">
+        <strong>Already have the SendMe Customer app installed?</strong>
+        You can delete your account directly from <strong>Profile → Delete
+        Account</strong> — no need to use this page.
+      </div>
+
+      <!-- Request step: shown by default -->
+      <section id="request-section" class="card danger">
+        <h2 style="margin-top:0">Request account deletion</h2>
+        <p>
+          Enter the email address on your SendMe account. If it matches an
+          account, we'll email you a confirmation link — clicking it is
+          what actually deletes your account, so no one else can delete it
+          using only your email address.
+        </p>
+        <form id="request-form">
+          <label for="email">Account email address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+          <button type="submit" class="btn" id="request-submit">Send deletion confirmation link</button>
+        </form>
+        <div class="status" id="request-status" role="status"></div>
+      </section>
+
+      <!-- Confirm step: shown only when the page is opened from the emailed link (?token=...) -->
+      <section id="confirm-section" class="card danger" hidden>
+        <h2 style="margin-top:0">Confirm account deletion</h2>
+        <p>
+          You followed a deletion link we emailed you. This step is what
+          actually deletes your account and personal information — it
+          cannot be undone.
+        </p>
+        <button type="button" class="btn" id="confirm-submit">Confirm — delete my account</button>
+        <div class="status" id="confirm-status" role="status"></div>
+      </section>
+
+      <p style="margin-top:2rem; font-size:0.9rem; color:var(--muted)">
+        Prefer email, or having trouble with this page? Contact us directly
+        at
+        <a href="mailto:support@sendmeafrica.com">support@sendmeafrica.com</a>
+        and we will process your deletion request manually.
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 SendMe Africa. All rights reserved. · <a href="/">sendmeafrica.com</a> · <a href="/privacy">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+      (function () {
+        var API_BASE_URL = 'https://api.sendmeafrica.com';
+
+        function showStatus(el, type, message) {
+          el.className = 'status ' + type;
+          el.textContent = message;
+        }
+
+        var params = new URLSearchParams(window.location.search);
+        var token = params.get('token');
+
+        var requestSection = document.getElementById('request-section');
+        var confirmSection = document.getElementById('confirm-section');
+        var alreadyInApp = document.getElementById('already-in-app');
+
+        if (token) {
+          // Opened from the emailed confirmation link — show the confirm
+          // step instead of the request form. The token itself is never
+          // displayed or logged; it's only ever sent back to the API.
+          requestSection.hidden = true;
+          alreadyInApp.hidden = true;
+          confirmSection.hidden = false;
+
+          document.getElementById('confirm-submit').addEventListener('click', function () {
+            var btn = this;
+            var statusEl = document.getElementById('confirm-status');
+            btn.disabled = true;
+            btn.textContent = 'Deleting…';
+            fetch(API_BASE_URL + '/api/v1/account-deletion-requests/confirm', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ token: token }),
+            })
+              .then(function (res) {
+                return res.json().then(function (body) { return { ok: res.ok, body: body }; });
+              })
+              .then(function (result) {
+                if (result.ok) {
+                  showStatus(statusEl, 'success', result.body.message || 'Your SendMe account has been deleted.');
+                  btn.hidden = true;
+                } else {
+                  showStatus(statusEl, 'error', result.body.error || 'This link is invalid or has expired. Please request a new one.');
+                  btn.disabled = false;
+                  btn.textContent = 'Confirm — delete my account';
+                }
+              })
+              .catch(function () {
+                showStatus(statusEl, 'error', 'Could not reach SendMe right now. Please try again in a moment, or email support@sendmeafrica.com.');
+                btn.disabled = false;
+                btn.textContent = 'Confirm — delete my account';
+              });
+          });
+          return;
+        }
+
+        document.getElementById('request-form').addEventListener('submit', function (e) {
+          e.preventDefault();
+          var btn = document.getElementById('request-submit');
+          var statusEl = document.getElementById('request-status');
+          var email = document.getElementById('email').value.trim();
+          if (!email) return;
+
+          btn.disabled = true;
+          btn.textContent = 'Sending…';
+          fetch(API_BASE_URL + '/api/v1/account-deletion-requests', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email }),
+          })
+            .then(function (res) {
+              return res.json().then(function (body) { return { ok: res.ok, body: body }; });
+            })
+            .then(function (result) {
+              if (result.ok) {
+                showStatus(statusEl, 'success', result.body.message || 'If a SendMe account exists for this email, we\'ve sent instructions to confirm deletion.');
+                document.getElementById('request-form').reset();
+              } else if (result.body && result.body.error) {
+                showStatus(statusEl, 'error', result.body.error);
+              } else {
+                showStatus(statusEl, 'error', 'Something went wrong. Please try again, or email support@sendmeafrica.com.');
+              }
+            })
+            .catch(function () {
+              showStatus(statusEl, 'error', 'Could not reach SendMe right now. Please try again in a moment, or email support@sendmeafrica.com.');
+            })
+            .finally(function () {
+              btn.disabled = false;
+              btn.textContent = 'Send deletion confirmation link';
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>
